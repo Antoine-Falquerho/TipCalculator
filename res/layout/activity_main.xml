@@ -4,26 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
 
-    <Button
-        android:id="@+id/bv15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bv10"
-        android:layout_centerHorizontal="true"
-        android:onClick="tip15"
-        android:text="15%" />
-
-    <Button
-        android:id="@+id/bv20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bv15"
-        android:layout_alignBottom="@+id/bv15"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:onClick="tip20"
-        android:text="20%" />
-
     <TextView
         android:id="@+id/tvTip"
         android:layout_width="wrap_content"
@@ -43,13 +23,49 @@
         android:ems="10" />
 
     <Button
+        android:id="@+id/bv15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bv10"
+        android:layout_alignBottom="@+id/bv10"
+        android:layout_centerHorizontal="true"
+        android:onClick="tip15"
+        android:text="15%" />
+
+    <Button
         android:id="@+id/bv10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="23dp"
+        android:layout_below="@+id/etAmount"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="56dp"
+        android:layout_toLeftOf="@+id/bv15"
         android:onClick="tip10"
         android:text="10%" />
+
+    <Button
+        android:id="@+id/bv20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bv15"
+        android:layout_alignBottom="@+id/bv15"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/bv15"
+        android:onClick="tip20"
+        android:text="20%" />
+
+    <EditText
+        android:id="@+id/etTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvTip"
+        android:layout_alignLeft="@+id/etAmount"
+        android:layout_marginBottom="58dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="15" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
