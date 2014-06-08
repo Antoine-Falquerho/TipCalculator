@@ -5,7 +5,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,6 +30,9 @@ public class MainActivity extends Activity {
 		etTip = (EditText)findViewById(R.id.etTip);
 		tvTip = (TextView)findViewById(R.id.tvTip);
 		etSplit = (EditText)findViewById(R.id.etSplit);
+		
+		final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+		etTip.setText(pref.getString("percent", "18")); 
 
 		etAmount.addTextChangedListener(new TextWatcher() {
 		    @Override
@@ -57,6 +63,10 @@ public class MainActivity extends Activity {
 		    	try{
 		    		BigDecimal tip = calculateTip();		    	 
 		    		tvTip.setText("$" + tip.toString());
+		    		
+		    		Editor edit = pref.edit();
+		    		edit.putString("percent", etTip.getText().toString());
+		    		edit.commit(); 
 		    	}catch (Exception e){
 		    		// catch 
 		    	}
