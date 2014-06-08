@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/green_background"
     tools:context="${packageName}.${activityClass}"  >
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
         android:text="$0"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -23,6 +25,7 @@
         android:layout_marginTop="56dp"
         android:layout_toLeftOf="@+id/bv15"
         android:onClick="tip10"
+        android:textColor="#fff"
         android:text="10%" />
 
     <Button
@@ -34,6 +37,7 @@
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@+id/bv15"
         android:onClick="tip20"
+        android:textColor="#fff"
         android:text="20%" />
 
     <EditText
@@ -44,6 +48,7 @@
         android:layout_marginTop="40dp"
         android:layout_toRightOf="@+id/textView1"
         android:ems="10"
+        android:textColor="#fff"
         android:width="100dp" />
 
     <Button
@@ -54,6 +59,7 @@
         android:layout_alignBottom="@+id/bv10"
         android:layout_centerHorizontal="true"
         android:onClick="tip15"
+        android:textColor="#fff"
         android:text="15%" />
 
     <TextView
@@ -64,6 +70,7 @@
         android:layout_alignBottom="@+id/etTip"
         android:layout_toRightOf="@+id/etTip"
         android:text="%"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -74,7 +81,8 @@
         android:layout_alignBottom="@+id/etAmount"
         android:layout_alignRight="@+id/bv10"
         android:text="@string/Amount"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
 
     <TextView
         android:id="@+id/textView2"
@@ -84,6 +92,7 @@
         android:layout_alignBottom="@+id/etTip"
         android:layout_alignLeft="@+id/textView1"
         android:text="@string/Tip"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -95,6 +104,7 @@
         android:ems="10"
         android:inputType="number"
         android:text="15"
+        android:textColor="#fff"
         android:width="50dp" >
 
         <requestFocus />
@@ -108,6 +118,7 @@
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignRight="@+id/etAmount"
         android:text="@string/Split_by"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -118,6 +129,7 @@
         android:layout_toRightOf="@+id/textView4"
         android:ems="10"
         android:text="1"
+        android:textColor="#fff"
         android:width="50dp" />
 
     <TextView
@@ -127,6 +139,7 @@
         android:layout_above="@+id/tvTip"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
+        android:textColor="#fff"
         android:text="@string/recommended_tip" />
 
 </RelativeLayout>
