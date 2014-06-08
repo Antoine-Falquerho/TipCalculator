@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
 	private EditText etAmount;
 	private EditText etTip;
 	private TextView tvTip;	
+	private EditText etSplit;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends Activity {
 		etAmount = (EditText)findViewById(R.id.etAmount);
 		etTip = (EditText)findViewById(R.id.etTip);
 		tvTip = (TextView)findViewById(R.id.tvTip);
+		etSplit = (EditText)findViewById(R.id.etSplit);
 
 		etAmount.addTextChangedListener(new TextWatcher() {
 		    @Override
@@ -73,14 +75,41 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+		
+		etSplit.addTextChangedListener(new TextWatcher() {
+		    @Override
+		    public void onTextChanged(CharSequence s, int start, int before, int count) {
+		        // Fires right as the text is being changed (even supplies the range of text)
+		    	try{
+		    		BigDecimal tip = calculateTip();		    	 
+		    		tvTip.setText("$" + tip.toString());
+		    	}catch (Exception e){
+		    		// catch 
+		    	}
+		    }
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
 	protected BigDecimal calculateTip(){
 		Integer percent = Integer.parseInt(etTip.getText().toString());
+		Integer split = Integer.parseInt(etSplit.getText().toString());
 		BigDecimal tip = new BigDecimal(0);
 		try{
-			Double amount = Double.parseDouble(etAmount.getText().toString());
-			tip = BigDecimal.valueOf((double)(amount * percent / 100));
+			Double amount = Double.parseDouble(etAmount.getText().toString());			
+			tip = BigDecimal.valueOf((double)((amount * percent / 100) / split  ));
 		}catch (Exception e){
 			// do something
 		}

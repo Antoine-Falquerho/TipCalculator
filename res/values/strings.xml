@@ -3,5 +3,9 @@
 
     <string name="app_name">TipCalculator</string>
     <string name="hello_world">Hello world!</string>
+    <string name="Amount">Amount $</string>
+    <string name="Tip">Tip</string>
+    <string name="Split_by">Split by</string>
+    <string name="recommended_tip">Recommended Tip</string>
 
 </resources>

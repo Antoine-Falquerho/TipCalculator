@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${packageName}.${activityClass}" >
+    tools:context="${packageName}.${activityClass}"  >
 
     <TextView
         android:id="@+id/tvTip"
@@ -11,26 +11,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
+        android:text="$0"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/etAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:ems="10" />
-
-    <Button
-        android:id="@+id/bv15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bv10"
-        android:layout_alignBottom="@+id/bv10"
-        android:layout_centerHorizontal="true"
-        android:onClick="tip15"
-        android:text="15%" />
 
     <Button
         android:id="@+id/bv10"
@@ -55,17 +37,96 @@
         android:text="20%" />
 
     <EditText
+        android:id="@+id/etAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:width="100dp" />
+
+    <Button
+        android:id="@+id/bv15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bv10"
+        android:layout_alignBottom="@+id/bv10"
+        android:layout_centerHorizontal="true"
+        android:onClick="tip15"
+        android:text="15%" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etTip"
+        android:layout_alignBottom="@+id/etTip"
+        android:layout_toRightOf="@+id/etTip"
+        android:text="%"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etAmount"
+        android:layout_alignBottom="@+id/etAmount"
+        android:layout_alignRight="@+id/bv10"
+        android:text="@string/Amount"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etTip"
+        android:layout_alignBottom="@+id/etTip"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="@string/Tip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
         android:id="@+id/etTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvTip"
-        android:layout_alignLeft="@+id/etAmount"
-        android:layout_marginBottom="58dp"
+        android:layout_above="@+id/bv15"
+        android:layout_toLeftOf="@+id/etAmount"
         android:ems="10"
         android:inputType="number"
-        android:text="15" >
+        android:text="15"
+        android:width="50dp" >
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignRight="@+id/etAmount"
+        android:text="@string/Split_by"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/etSplit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bv20"
+        android:layout_toRightOf="@+id/textView4"
+        android:ems="10"
+        android:text="1"
+        android:width="50dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvTip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/recommended_tip" />
 
 </RelativeLayout>
