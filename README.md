@@ -2,7 +2,7 @@
 
 This is an Android demo application which allows a user to calculate the appropriate tip based on the total amount entered.
 
-Time spent: 5 hours spent in total
+Time spent: 6 hours spent in total
 
 Completed user stories:
 
@@ -14,7 +14,7 @@ Completed user stories:
  * [x] -(Optional) User can select custom tip percentage if desired
  * [x] -(Optional) User can select how many ways to split the tip
  * [x] -(Optional) User can edit preset tip percentages and have them persist across launches
- * [] -(Optional) Experiment with trying input widgets to replace the buttons and/or textviews
+ * [-] -(Optional) Experiment with trying input widgets to replace the buttons and/or textviews
  * [x] -(Optional) Improve the user interface and experience by using images and/or colors
  
 Notes:
