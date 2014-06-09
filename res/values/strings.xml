@@ -7,5 +7,7 @@
     <string name="Tip">Tip</string>
     <string name="Split_by">Split by</string>
     <string name="recommended_tip">Recommended Tip</string>
+    <string name="to_pay">To pay:</string>
+    <string name="total">Total</string>
 
 </resources>

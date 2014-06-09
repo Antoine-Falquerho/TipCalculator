@@ -21,6 +21,8 @@ public class MainActivity extends Activity {
 	private EditText etTip;
 	private TextView tvTip;	
 	private EditText etSplit;
+	private TextView tvToPay;
+	private TextView tvTotal;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class MainActivity extends Activity {
 		etTip = (EditText)findViewById(R.id.etTip);
 		tvTip = (TextView)findViewById(R.id.tvTip);
 		etSplit = (EditText)findViewById(R.id.etSplit);
+		tvToPay = (TextView)findViewById(R.id.tvToPay);
+		tvTotal = (TextView)findViewById(R.id.tvTotal);
 		
 		final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 		etTip.setText(pref.getString("percent", "18")); 
@@ -38,8 +42,7 @@ public class MainActivity extends Activity {
 		    @Override
 		    public void onTextChanged(CharSequence s, int start, int before, int count) {
 		        // Fires right as the text is being changed (even supplies the range of text)
-		    	BigDecimal tip = calculateTip();		    	 
-				tvTip.setText("$" + tip.toString());
+		    	BigDecimal tip = calculateTip();
 		    }
 
 			@Override
@@ -61,8 +64,7 @@ public class MainActivity extends Activity {
 		    public void onTextChanged(CharSequence s, int start, int before, int count) {
 		        // Fires right as the text is being changed (even supplies the range of text)
 		    	try{
-		    		BigDecimal tip = calculateTip();		    	 
-		    		tvTip.setText("$" + tip.toString());
+		    		BigDecimal tip = calculateTip();		    		
 		    		
 		    		Editor edit = pref.edit();
 		    		edit.putString("percent", etTip.getText().toString());
@@ -91,8 +93,7 @@ public class MainActivity extends Activity {
 		    public void onTextChanged(CharSequence s, int start, int before, int count) {
 		        // Fires right as the text is being changed (even supplies the range of text)
 		    	try{
-		    		BigDecimal tip = calculateTip();		    	 
-		    		tvTip.setText("$" + tip.toString());
+		    		BigDecimal tip = calculateTip();
 		    	}catch (Exception e){
 		    		// catch 
 		    	}
@@ -117,9 +118,15 @@ public class MainActivity extends Activity {
 		Integer percent = Integer.parseInt(etTip.getText().toString());
 		Integer split = Integer.parseInt(etSplit.getText().toString());
 		BigDecimal tip = new BigDecimal(0);
+		BigDecimal total = new BigDecimal(0);
 		try{
 			Double amount = Double.parseDouble(etAmount.getText().toString());			
-			tip = BigDecimal.valueOf((double)((amount * percent / 100) / split  ));
+			tip = BigDecimal.valueOf((double)((amount * percent / 100) / split  )).setScale(2, RoundingMode.HALF_UP);
+			tvToPay.setText("$" + BigDecimal.valueOf(amount / split ).setScale(2, RoundingMode.HALF_UP));
+			tvTip.setText("$" + tip.toString());
+			Double total_with_tip = (double)((amount / split) + Double.parseDouble(tip.toString()));
+			total = BigDecimal.valueOf((double) total_with_tip ).setScale(2, RoundingMode.HALF_UP);
+			tvTotal.setText("$" + total.toString());
 		}catch (Exception e){
 			// do something
 		}
