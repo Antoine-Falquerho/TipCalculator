@@ -14,12 +14,12 @@ Completed user stories:
  * [x] -(Optional) User can select custom tip percentage if desired
  * [x] -(Optional) User can select how many ways to split the tip
  * [x] -(Optional) User can edit preset tip percentages and have them persist across launches
- * [-] -(Optional) Experiment with trying input widgets to replace the buttons and/or textviews
+ * [x] -(Optional) Experiment with trying input widgets to replace the buttons and/or textviews
  * [x] -(Optional) Improve the user interface and experience by using images and/or colors
  
 Notes:
 
-...
+I used a seekBar to select a custom tips
 
 Walkthrough of all user stories:
 
